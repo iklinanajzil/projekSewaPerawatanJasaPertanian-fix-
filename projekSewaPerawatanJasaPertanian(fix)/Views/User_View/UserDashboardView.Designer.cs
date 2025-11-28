@@ -40,6 +40,8 @@
             this.lblTotalPengeluaran = new System.Windows.Forms.Label();
             this.linkRiwayatTransaksi = new System.Windows.Forms.LinkLabel();
             this.linkKeRegister = new System.Windows.Forms.LinkLabel();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnPesanSekarangg = new System.Windows.Forms.Button();
             this.panelscroll.SuspendLayout();
             this.panelcontent.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -60,15 +62,18 @@
             // 
             this.panelcontent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelcontent.BackgroundImage")));
             this.panelcontent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelcontent.Controls.Add(this.btnPesanSekarangg);
+            this.panelcontent.Controls.Add(this.btnLogOut);
             this.panelcontent.Controls.Add(this.btnPesanSekarang);
             this.panelcontent.Controls.Add(this.flowLayoutPanelLayanan);
             this.panelcontent.Controls.Add(this.tableLayoutPanel1);
             this.panelcontent.Controls.Add(this.linkRiwayatTransaksi);
             this.panelcontent.Controls.Add(this.linkKeRegister);
-            this.panelcontent.Location = new System.Drawing.Point(3, 3);
+            this.panelcontent.Location = new System.Drawing.Point(3, -6);
             this.panelcontent.Name = "panelcontent";
             this.panelcontent.Size = new System.Drawing.Size(1930, 1709);
             this.panelcontent.TabIndex = 0;
+            this.panelcontent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelcontent_Paint);
             // 
             // btnPesanSekarang
             // 
@@ -88,7 +93,7 @@
             // 
             this.flowLayoutPanelLayanan.Location = new System.Drawing.Point(75, 484);
             this.flowLayoutPanelLayanan.Name = "flowLayoutPanelLayanan";
-            this.flowLayoutPanelLayanan.Size = new System.Drawing.Size(1770, 1168);
+            this.flowLayoutPanelLayanan.Size = new System.Drawing.Size(1825, 1077);
             this.flowLayoutPanelLayanan.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -102,7 +107,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblSedangBerlangsung, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblSelesai, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTotalPengeluaran, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(131, 207);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 186);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -155,7 +160,7 @@
             // 
             // linkRiwayatTransaksi
             // 
-            this.linkRiwayatTransaksi.ActiveLinkColor = System.Drawing.SystemColors.Window;
+            this.linkRiwayatTransaksi.ActiveLinkColor = System.Drawing.SystemColors.Menu;
             this.linkRiwayatTransaksi.AutoSize = true;
             this.linkRiwayatTransaksi.BackColor = System.Drawing.Color.Transparent;
             this.linkRiwayatTransaksi.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,11 +184,36 @@
             this.linkKeRegister.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.linkKeRegister.Location = new System.Drawing.Point(1702, 41);
             this.linkKeRegister.Name = "linkKeRegister";
-            this.linkKeRegister.Size = new System.Drawing.Size(161, 35);
+            this.linkKeRegister.Size = new System.Drawing.Size(245, 35);
             this.linkKeRegister.TabIndex = 8;
             this.linkKeRegister.TabStop = true;
-            this.linkKeRegister.Text = "LOG OUT";
-            this.linkKeRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkKeRegister_LinkClicked);
+            this.linkKeRegister.Text = "                       ";
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.BackgroundImage")));
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogOut.Location = new System.Drawing.Point(1690, 21);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(179, 69);
+            this.btnLogOut.TabIndex = 1;
+            this.btnLogOut.Text = "    ";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnPesanSekarangg
+            // 
+            this.btnPesanSekarangg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesanSekarangg.BackgroundImage")));
+            this.btnPesanSekarangg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPesanSekarangg.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesanSekarangg.ForeColor = System.Drawing.Color.Green;
+            this.btnPesanSekarangg.Location = new System.Drawing.Point(1521, 1601);
+            this.btnPesanSekarangg.Name = "btnPesanSekarangg";
+            this.btnPesanSekarangg.Size = new System.Drawing.Size(351, 81);
+            this.btnPesanSekarangg.TabIndex = 14;
+            this.btnPesanSekarangg.Text = "PESAN SEKARANG";
+            this.btnPesanSekarangg.UseVisualStyleBackColor = true;
+            this.btnPesanSekarangg.Click += new System.EventHandler(this.btnPesanSekarangg_Click);
             // 
             // UserDashboardView
             // 
@@ -215,5 +245,7 @@
         private System.Windows.Forms.Label lblSedangBerlangsung;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelLayanan;
         private System.Windows.Forms.Button btnPesanSekarang;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnPesanSekarangg;
     }
 }

@@ -39,20 +39,20 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Models
 {
     public class JasaModel
     {
-        // Dari JadwalJasa - Kunci untuk Checkout
         public int IdJadwal { get; set; }
 
-        // Data Jasa
         public string NamaJasa { get; set; }
         public decimal HargaJasa { get; set; }
         public string DeskripsiJasa { get; set; }
-        public string SimbolJasa { get; set; } // Ditambahkan sesuai request
+        public string SimbolJasa { get; set; } 
 
-        // Data Jadwal
         public string HariTersedia { get; set; }
-        public DateTime TanggalTersedia { get; set; }
-        // Hasil gabungan dari jam_mulai dan jam_akhir (misal: "09:00 - 11:00")
-        public string JamTersedia { get; set; }
-        public string StatusKetersediaan { get; set; } // "Tersedia" atau "Penuh"
+        public DateTime TanggalJadwal { get; set; } 
+        public TimeSpan JamMulai { get; set; }      
+        public TimeSpan JamAkhir { get; set; }
+        public string SlotKetersediaan { get; set; } 
+        
+
+        public int IdJasa { get; set; }
     }
 }

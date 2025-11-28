@@ -32,6 +32,7 @@
             this.panelscroll = new System.Windows.Forms.Panel();
             this.panelcontent = new System.Windows.Forms.Panel();
             this.linkLayananTersedia = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelscroll.SuspendLayout();
             this.panelcontent.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             // panelcontent
             // 
             this.panelcontent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelcontent.BackgroundImage")));
+            this.panelcontent.Controls.Add(this.button1);
             this.panelcontent.Controls.Add(this.linkLayananTersedia);
             this.panelcontent.Location = new System.Drawing.Point(3, 3);
             this.panelcontent.Name = "panelcontent";
@@ -70,6 +72,18 @@
             this.linkLayananTersedia.Text = "                                            ";
             this.linkLayananTersedia.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLayananTersedia_LinkClicked);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(1678, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 69);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "    ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UserRiwayatTransaksi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,5 +104,6 @@
         private System.Windows.Forms.Panel panelscroll;
         private System.Windows.Forms.Panel panelcontent;
         private System.Windows.Forms.LinkLabel linkLayananTersedia;
+        private System.Windows.Forms.Button button1;
     }
 }

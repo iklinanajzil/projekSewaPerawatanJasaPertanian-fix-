@@ -255,6 +255,42 @@
     <Compile Include="Views\Admin_View\AdminDashboardView.Designer.cs">
       <DependentUpon>AdminDashboardView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin_View\AdminJasaCardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\AdminJasaCardControl.Designer.cs">
+      <DependentUpon>AdminJasaCardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_View\AdminKelolaLayananView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\AdminKelolaLayananView.Designer.cs">
+      <DependentUpon>AdminKelolaLayananView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_View\AdminRiwayatTransaksiView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\AdminRiwayatTransaksiView.Designer.cs">
+      <DependentUpon>AdminRiwayatTransaksiView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormEditJasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormEditJasa.Designer.cs">
+      <DependentUpon>FormEditJasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormTambahJadwal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormTambahJadwal.Designer.cs">
+      <DependentUpon>FormTambahJadwal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormTambahDataJasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin_View\FormTambahDataJasa.Designer.cs">
+      <DependentUpon>FormTambahDataJasa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +338,21 @@
     </Compile>
     <EmbeddedResource Include="Views\Admin_View\AdminDashboardView.resx">
       <DependentUpon>AdminDashboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin_View\AdminJasaCardControl.resx">
+      <DependentUpon>AdminJasaCardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin_View\AdminKelolaLayananView.resx">
+      <DependentUpon>AdminKelolaLayananView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin_View\FormEditJasa.resx">
+      <DependentUpon>FormEditJasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin_View\FormTambahDataJasa.resx">
+      <DependentUpon>FormTambahDataJasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin_View\FormTambahJadwal.resx">
+      <DependentUpon>FormTambahJadwal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>

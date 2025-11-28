@@ -113,8 +113,9 @@
             this.linkKeRegister.AutoSize = true;
             this.linkKeRegister.BackColor = System.Drawing.Color.Transparent;
             this.linkKeRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkKeRegister.Image = ((System.Drawing.Image)(resources.GetObject("linkKeRegister.Image")));
             this.linkKeRegister.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkKeRegister.Location = new System.Drawing.Point(1723, 43);
+            this.linkKeRegister.Location = new System.Drawing.Point(1723, 41);
             this.linkKeRegister.Name = "linkKeRegister";
             this.linkKeRegister.Size = new System.Drawing.Size(135, 33);
             this.linkKeRegister.TabIndex = 0;

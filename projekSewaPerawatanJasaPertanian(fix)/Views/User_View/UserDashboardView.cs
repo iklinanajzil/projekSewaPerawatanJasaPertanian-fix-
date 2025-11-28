@@ -16,36 +16,25 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
 {
     public partial class UserDashboardView : Form
     {
-        //public UserDashboardView()
-        //{
-        //    InitializeComponent();
-        //}
         private readonly DataServiceController _dataService = new DataServiceController();
 
         public UserDashboardView()
         {
             InitializeComponent();
             this.Load += new System.EventHandler(this.UserDashboardView_Load);
-
-            // Pastikan flowLayoutPanelLayanan sudah ada di Designer
         }
-
-        // 🚨 TAMBAHKAN ATAU KOREKSI METODE INI 🚨
+  
         private void UserDashboardView_Load(object sender, EventArgs e)
         {
-            // Panggil metode untuk memuat card saat Form dimuat
-            LoadJasaCards();
-            // Contoh: LoadDashboardStats(idPengguna);
+            LoadJasaCards();   
         }
 
         private void LoadJasaCards()
-        {
-            // PASTIKAN NAMA INI SAMA DENGAN FLOWLAYOUTPANEL DI DESIGNER
-            flowLayoutPanelLayanan.Controls.Clear();
+        {       
+            this.flowLayoutPanelLayanan.Controls.Clear();
 
             try
             {
-                // Memanggil data dari DataServiceController
                 List<JasaModel> jasaTersedia = _dataService.GetJasaTersedia();
 
                 if (jasaTersedia != null && jasaTersedia.Any())
@@ -54,8 +43,6 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
                     {
                         JasaCardControl card = new JasaCardControl();
                         card.SetData(jasa);
-
-                        // Tambahkan Card ke FlowLayoutPanel
                         flowLayoutPanelLayanan.Controls.Add(card);
                     }
                 }
@@ -66,20 +53,13 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
             }
             catch (Exception ex)
             {
-                // Ini akan menangkap error koneksi atau SQL (penting untuk debugging!)
                 MessageBox.Show($"Error saat memuat data layanan: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         private UserDashboardController controller = new UserDashboardController();
-        private int currentUserId;
-
-        //private void UserDashboardView_Load(object sender, EventArgs e)
-        //{
-        //    LoadDashboard();
-        //    LoadJasaCards();
-        //}
+        private int currentUserId;  
 
         private void LoadDashboard()
         {
@@ -92,36 +72,34 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
             lblTotalPengeluaran.Text = "Rp " + stats.pengeluaran.ToString("N0");
         }
 
+        private void btnPesanSekarang_Click(object sender, EventArgs e)
+        {
+            
+        }
 
-        // --- Logika Menampilkan Cards di FlowLayoutPanel ---
-        //private void LoadJasaCards()
-        //{
-        //    // flowLayoutPanelLayanan adalah FlowLayoutPanel di Designer Anda
-        //    flowLayoutPanelLayanan.Controls.Clear();
+        private void linkRiwayatTransaksi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserRiwayatTransaksi userRiwayatTransaksi = new UserRiwayatTransaksi();
+            userRiwayatTransaksi.Show();
+            this.Hide();
+        }
 
-        //    DataServiceController dataService = new DataServiceController();
-        //    List<JasaModel> jasaTersedia = dataService.GetJasaTersedia();
-
-        //    foreach (var jasa in jasaTersedia)
-        //    {
-        //        JasaCardControl card = new JasaCardControl();
-        //        card.SetData(jasa);
-        //        flowLayoutPanelLayanan.Controls.Add(card);
-        //    }
-        //}
-     
-        private void linkKeRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
             LoginView login = new LoginView();
             login.Show();
             this.Hide();
         }
 
-        private void btnPesanSekarang_Click(object sender, EventArgs e)
+        private void panelcontent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnPesanSekarangg_Click(object sender, EventArgs e)
         {
             List<int> idJadwalTerpilih = new List<int>();
 
-            // Kumpulkan ID jadwal yang dicentang
             foreach (JasaCardControl card in flowLayoutPanelLayanan.Controls.OfType<JasaCardControl>())
             {
                 if (card.IsSelected && card.Tag is int idJadwal)
@@ -132,8 +110,6 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
 
             if (idJadwalTerpilih.Count > 0)
             {
-                // --- DATA ASUMSI DARI SESI/FORM INPUT ALAMAT ---
-                // Data ini HARUS didapatkan dari input user/sesi login
                 int idPenggunaSaatIni = 1;
                 string namaPenerima = "Nama Pelanggan Contoh";
                 string noHp = "081234567890";
@@ -141,7 +117,6 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
                 int idKelurahan = 1;
                 int idKecamatan = 1;
                 string metodePembayaran = "Transfer Bank";
-                // ---------------------------------------------
 
                 try
                 {
@@ -153,8 +128,7 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
                     );
 
                     MessageBox.Show("Pesanan berhasil dibuat! Silakan lakukan pembayaran.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadJasaCards(); // Refresh daftar jasa
-                                     // tabControlMain.SelectedTab = tabRiwayatTransaksi; 
+                    LoadJasaCards(); 
                 }
                 catch (Exception ex)
                 {
@@ -166,13 +140,6 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
                 MessageBox.Show("Silakan pilih minimal satu layanan sebelum memesan.");
             }
         }
-
-        private void linkRiwayatTransaksi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            UserRiwayatTransaksi userRiwayatTransaksi = new UserRiwayatTransaksi();
-            userRiwayatTransaksi.Show();
-            this.Hide();
-        }  
     }
 }
 

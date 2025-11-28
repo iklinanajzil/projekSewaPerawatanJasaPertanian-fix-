@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JasaCardControl));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblJamAkhir = new System.Windows.Forms.Label();
             this.lblDeskripsi = new System.Windows.Forms.Label();
             this.lblStatusSlot = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblHargaJasa = new System.Windows.Forms.Label();
-            this.lblTanggalJadwal = new System.Windows.Forms.Label();
-            this.lblJamJadwal = new System.Windows.Forms.Label();
+            this.lblHari = new System.Windows.Forms.Label();
+            this.lblJamMulai = new System.Windows.Forms.Label();
             this.lblSimbolJasa = new System.Windows.Forms.Label();
             this.lblNamaJasa = new System.Windows.Forms.Label();
             this.chkPilihJasa = new System.Windows.Forms.CheckBox();
@@ -45,12 +46,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblJamAkhir);
             this.panel1.Controls.Add(this.lblDeskripsi);
             this.panel1.Controls.Add(this.lblStatusSlot);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblHargaJasa);
-            this.panel1.Controls.Add(this.lblTanggalJadwal);
-            this.panel1.Controls.Add(this.lblJamJadwal);
+            this.panel1.Controls.Add(this.lblHari);
+            this.panel1.Controls.Add(this.lblJamMulai);
             this.panel1.Controls.Add(this.lblSimbolJasa);
             this.panel1.Controls.Add(this.lblNamaJasa);
             this.panel1.Controls.Add(this.chkPilihJasa);
@@ -58,6 +60,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(555, 337);
             this.panel1.TabIndex = 0;
+            // 
+            // lblJamAkhir
+            // 
+            this.lblJamAkhir.AutoSize = true;
+            this.lblJamAkhir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblJamAkhir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblJamAkhir.Location = new System.Drawing.Point(166, 210);
+            this.lblJamAkhir.Name = "lblJamAkhir";
+            this.lblJamAkhir.Size = new System.Drawing.Size(57, 24);
+            this.lblJamAkhir.TabIndex = 10;
+            this.lblJamAkhir.Text = "Pukul";
             // 
             // lblDeskripsi
             // 
@@ -101,27 +114,26 @@
             this.lblHargaJasa.TabIndex = 6;
             this.lblHargaJasa.Text = "Senin";
             // 
-            // lblTanggalJadwal
+            // lblHari
             // 
-            this.lblTanggalJadwal.AutoSize = true;
-            this.lblTanggalJadwal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblTanggalJadwal.Location = new System.Drawing.Point(66, 174);
-            this.lblTanggalJadwal.Name = "lblTanggalJadwal";
-            this.lblTanggalJadwal.Size = new System.Drawing.Size(59, 24);
-            this.lblTanggalJadwal.TabIndex = 5;
-            this.lblTanggalJadwal.Text = "Senin";
+            this.lblHari.AutoSize = true;
+            this.lblHari.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblHari.Location = new System.Drawing.Point(66, 174);
+            this.lblHari.Name = "lblHari";
+            this.lblHari.Size = new System.Drawing.Size(59, 24);
+            this.lblHari.TabIndex = 5;
+            this.lblHari.Text = "Senin";
             // 
-            // lblJamJadwal
+            // lblJamMulai
             // 
-            this.lblJamJadwal.AutoSize = true;
-            this.lblJamJadwal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblJamJadwal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblJamJadwal.Location = new System.Drawing.Point(65, 211);
-            this.lblJamJadwal.Name = "lblJamJadwal";
-            this.lblJamJadwal.Size = new System.Drawing.Size(57, 24);
-            this.lblJamJadwal.TabIndex = 4;
-            this.lblJamJadwal.Text = "Pukul";
-            this.lblJamJadwal.Click += new System.EventHandler(this.lblJamJadwal_Click);
+            this.lblJamMulai.AutoSize = true;
+            this.lblJamMulai.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblJamMulai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblJamMulai.Location = new System.Drawing.Point(65, 211);
+            this.lblJamMulai.Name = "lblJamMulai";
+            this.lblJamMulai.Size = new System.Drawing.Size(57, 24);
+            this.lblJamMulai.TabIndex = 4;
+            this.lblJamMulai.Text = "Pukul";
             // 
             // lblSimbolJasa
             // 
@@ -174,11 +186,12 @@
         private System.Windows.Forms.CheckBox chkPilihJasa;
         private System.Windows.Forms.Label lblNamaJasa;
         private System.Windows.Forms.Label lblHargaJasa;
-        private System.Windows.Forms.Label lblTanggalJadwal;
-        private System.Windows.Forms.Label lblJamJadwal;
+        private System.Windows.Forms.Label lblHari;
+        private System.Windows.Forms.Label lblJamMulai;
         private System.Windows.Forms.Label lblSimbolJasa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblStatusSlot;
         private System.Windows.Forms.Label lblDeskripsi;
+        private System.Windows.Forms.Label lblJamAkhir;
     }
 }

@@ -30,5 +30,12 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
             userDashboardView.Show();
             this.Hide();    
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            this.Hide();
+        }
     }
 }

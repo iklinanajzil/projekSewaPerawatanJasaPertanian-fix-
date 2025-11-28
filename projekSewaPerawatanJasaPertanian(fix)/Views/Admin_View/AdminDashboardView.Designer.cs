@@ -36,6 +36,10 @@
             this.lblSelesai = new System.Windows.Forms.Label();
             this.lblTotalPendapatan = new System.Windows.Forms.Label();
             this.lblLayananAktif = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.linkRiwayatTransaksi = new System.Windows.Forms.LinkLabel();
+            this.linkKelolaLayanan = new System.Windows.Forms.LinkLabel();
             this.panelscroll.SuspendLayout();
             this.panelcontent.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -54,6 +58,10 @@
             // panelcontent
             // 
             this.panelcontent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelcontent.BackgroundImage")));
+            this.panelcontent.Controls.Add(this.linkKelolaLayanan);
+            this.panelcontent.Controls.Add(this.linkRiwayatTransaksi);
+            this.panelcontent.Controls.Add(this.button1);
+            this.panelcontent.Controls.Add(this.flowLayoutPanel1);
             this.panelcontent.Controls.Add(this.tableLayoutPanel1);
             this.panelcontent.Location = new System.Drawing.Point(0, 3);
             this.panelcontent.Name = "panelcontent";
@@ -123,6 +131,58 @@
             this.lblLayananAktif.TabIndex = 7;
             this.lblLayananAktif.Text = "0";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 539);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1850, 1500);
+            this.flowLayoutPanel1.TabIndex = 14;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Location = new System.Drawing.Point(1666, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 69);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "    ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // linkRiwayatTransaksi
+            // 
+            this.linkRiwayatTransaksi.ActiveLinkColor = System.Drawing.SystemColors.WindowText;
+            this.linkRiwayatTransaksi.AutoSize = true;
+            this.linkRiwayatTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.linkRiwayatTransaksi.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRiwayatTransaksi.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkRiwayatTransaksi.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.linkRiwayatTransaksi.Location = new System.Drawing.Point(614, 177);
+            this.linkRiwayatTransaksi.Name = "linkRiwayatTransaksi";
+            this.linkRiwayatTransaksi.Size = new System.Drawing.Size(245, 35);
+            this.linkRiwayatTransaksi.TabIndex = 15;
+            this.linkRiwayatTransaksi.TabStop = true;
+            this.linkRiwayatTransaksi.Text = "                       ";
+            this.linkRiwayatTransaksi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRiwayatTransaksi_LinkClicked);
+            // 
+            // linkKelolaLayanan
+            // 
+            this.linkKelolaLayanan.ActiveLinkColor = System.Drawing.SystemColors.WindowText;
+            this.linkKelolaLayanan.AutoSize = true;
+            this.linkKelolaLayanan.BackColor = System.Drawing.Color.Transparent;
+            this.linkKelolaLayanan.Font = new System.Drawing.Font("Verdana", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkKelolaLayanan.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkKelolaLayanan.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.linkKelolaLayanan.Location = new System.Drawing.Point(343, 177);
+            this.linkKelolaLayanan.Name = "linkKelolaLayanan";
+            this.linkKelolaLayanan.Size = new System.Drawing.Size(245, 35);
+            this.linkKelolaLayanan.TabIndex = 16;
+            this.linkKelolaLayanan.TabStop = true;
+            this.linkKelolaLayanan.Text = "                       ";
+            this.linkKelolaLayanan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkKelolaLayanan_LinkClicked);
+            // 
             // AdminDashboardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +193,7 @@
             this.Text = "AdminDashboardView";
             this.panelscroll.ResumeLayout(false);
             this.panelcontent.ResumeLayout(false);
+            this.panelcontent.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -148,5 +209,9 @@
         private System.Windows.Forms.Label lblSelesai;
         private System.Windows.Forms.Label lblTotalPendapatan;
         private System.Windows.Forms.Label lblLayananAktif;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel linkKelolaLayanan;
+        private System.Windows.Forms.LinkLabel linkRiwayatTransaksi;
     }
 }
