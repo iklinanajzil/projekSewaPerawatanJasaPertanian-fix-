@@ -23,13 +23,20 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
         private UserDashboardController controller = new UserDashboardController();
         private int currentUserId;
         private int _idPengguna;
+        private int _idPenggunaSaatIni;
 
-        public UserDashboardView()
+        public UserDashboardView(int userId)
         {
             InitializeComponent();
             this.Load += new System.EventHandler(this.UserDashboardView_Load);
             _idPengguna = _idPengguna;
+            _idPenggunaSaatIni = userId;
         }
+
+        public UserDashboardView()
+        {
+        }
+
         public static class SessionManager
         {
             public static int CurrentUserId { get; set; } = 1;
@@ -80,48 +87,52 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
             // ... (logika LoadDashboard lainnya)
         }
 
-       
+
+        // File: UserDashboardView.cs
+
+         // Properti ini harus tersedia dan berisi ID pengguna
+
         private void btnPesanSekarangg_Click(object sender, EventArgs e)
         {
+            // 1. Ambil data jasa yang dipilih
+            var jasaDipilihList = flowLayoutPanelLayanan.Controls
+                .OfType<JasaCardControl>()
+                .Where(card => card.IsSelected)
+                .Select(card => card.JasaData)
+                .ToList();
 
-            var jasaDipilih = flowLayoutPanelLayanan.Controls
-        .OfType<JasaCardControl>()
-        .Where(card => card.IsSelected)
-        .Select(card => card.JasaData)
-        .ToList();
-
-            if (jasaDipilih.Count == 0)
+            // 2. Validasi (Hanya cek apakah minimal ada satu yang dipilih)
+            if (jasaDipilihList.Count == 0)
             {
                 MessageBox.Show("Pilih minimal satu jasa terlebih dahulu.");
                 return;
             }
 
-            FormCheckout form = new FormCheckout(jasaDipilih);
-            form.ShowDialog();
-            //List<JasaModel> jasaDipilih = new List<JasaModel>();
-
-            foreach (Control ctrl in flowLayoutPanelLayanan.Controls)
+            // 3. Pastikan ID Pengguna tersedia
+            if (_idPenggunaSaatIni <= 0)
             {
-                if (ctrl is JasaCardControl card)
-                {
-                    if (card.IsSelected)
-                    {
-                        jasaDipilih.Add(card.JasaData);
-                    }
-                }
-            }
-
-            if (jasaDipilih.Count == 0)
-            {
-                MessageBox.Show("Pilih minimal 1 jasa terlebih dahulu.");
+                MessageBox.Show("ID Pengguna tidak valid. Mohon login ulang.", "Error Sistem");
                 return;
             }
 
-            FormCheckout fc = new FormCheckout(jasaDipilih);
-            fc.Show();      
-            
+            try
+            {
+                // 4. Panggil FormCheckout dengan parameter yang benar (List<JasaModel>, ID Pengguna)
+
+                // CATATAN: Constructor FormCheckout HARUS diubah agar menerima List<JasaModel>
+                FormCheckout form = new FormCheckout(jasaDipilihList, _idPenggunaSaatIni);
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Pemesanan berhasil diproses!", "Sukses");
+                    // Logika Refresh
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan saat memulai pemesanan: {ex.Message}", "Error");
+            }
         }
-      
 
         private void linkRiwayatTransaksi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

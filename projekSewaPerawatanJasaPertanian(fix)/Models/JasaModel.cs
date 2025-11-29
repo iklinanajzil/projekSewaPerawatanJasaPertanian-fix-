@@ -47,7 +47,7 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Models
         public TimeSpan JamMulai { get; set; }      
         public TimeSpan JamAkhir { get; set; }
         public string SlotKetersediaan { get; set; } 
-        
+        public decimal TotalHarga { get; set; }
 
         public int IdJasa { get; set; }
     }

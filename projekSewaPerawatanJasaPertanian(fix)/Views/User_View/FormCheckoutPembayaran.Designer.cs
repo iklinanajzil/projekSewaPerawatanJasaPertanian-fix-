@@ -191,7 +191,7 @@
             // 
             // btnUploadBukti
             // 
-            this.btnUploadBukti.Location = new System.Drawing.Point(429, 396);
+            this.btnUploadBukti.Location = new System.Drawing.Point(359, 432);
             this.btnUploadBukti.Name = "btnUploadBukti";
             this.btnUploadBukti.Size = new System.Drawing.Size(167, 23);
             this.btnUploadBukti.TabIndex = 31;
@@ -200,7 +200,7 @@
             // 
             // txtPathBukti
             // 
-            this.txtPathBukti.Location = new System.Drawing.Point(285, 432);
+            this.txtPathBukti.Location = new System.Drawing.Point(175, 432);
             this.txtPathBukti.Name = "txtPathBukti";
             this.txtPathBukti.Size = new System.Drawing.Size(100, 20);
             this.txtPathBukti.TabIndex = 32;
@@ -208,7 +208,7 @@
             // 
             // btnKonfirmasiPembayaran
             // 
-            this.btnKonfirmasiPembayaran.Location = new System.Drawing.Point(529, 494);
+            this.btnKonfirmasiPembayaran.Location = new System.Drawing.Point(532, 439);
             this.btnKonfirmasiPembayaran.Name = "btnKonfirmasiPembayaran";
             this.btnKonfirmasiPembayaran.Size = new System.Drawing.Size(167, 23);
             this.btnKonfirmasiPembayaran.TabIndex = 33;
@@ -218,7 +218,7 @@
             // lblNamaFile
             // 
             this.lblNamaFile.AutoSize = true;
-            this.lblNamaFile.Location = new System.Drawing.Point(435, 438);
+            this.lblNamaFile.Location = new System.Drawing.Point(302, 439);
             this.lblNamaFile.Name = "lblNamaFile";
             this.lblNamaFile.Size = new System.Drawing.Size(35, 13);
             this.lblNamaFile.TabIndex = 34;
@@ -227,7 +227,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(632, 432);
+            this.lblStatus.Location = new System.Drawing.Point(302, 413);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(35, 13);
             this.lblStatus.TabIndex = 35;

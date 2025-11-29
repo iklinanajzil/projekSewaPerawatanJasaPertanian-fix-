@@ -17,6 +17,12 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Helpers
             CurrentUser = user;
         }
 
+        public static int GetCurrentUserId()
+        {
+            // Mengembalikan IdPengguna jika CurrentUser tidak null, jika tidak, mengembalikan 0
+            return CurrentUser?.IdPengguna ?? 0;
+        }
+
         public static void Logout()
         {
             CurrentUser = null;

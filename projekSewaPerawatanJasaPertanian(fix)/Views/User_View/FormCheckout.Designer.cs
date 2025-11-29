@@ -41,34 +41,33 @@
             this.lblRingkasanTanggal = new System.Windows.Forms.Label();
             this.lblRingkasanJam = new System.Windows.Forms.Label();
             this.cmbMetodePembayaran = new System.Windows.Forms.ComboBox();
-            this.lbJasa = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // txtNamaPenerima
             // 
             this.txtNamaPenerima.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNamaPenerima.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNamaPenerima.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaPenerima.Location = new System.Drawing.Point(54, 443);
             this.txtNamaPenerima.Name = "txtNamaPenerima";
-            this.txtNamaPenerima.Size = new System.Drawing.Size(705, 22);
+            this.txtNamaPenerima.Size = new System.Drawing.Size(705, 24);
             this.txtNamaPenerima.TabIndex = 0;
             // 
             // txtAlamatLengkap
             // 
             this.txtAlamatLengkap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAlamatLengkap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlamatLengkap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlamatLengkap.Location = new System.Drawing.Point(54, 541);
             this.txtAlamatLengkap.Name = "txtAlamatLengkap";
-            this.txtAlamatLengkap.Size = new System.Drawing.Size(705, 22);
+            this.txtAlamatLengkap.Size = new System.Drawing.Size(705, 24);
             this.txtAlamatLengkap.TabIndex = 1;
             // 
             // txtNomorHP
             // 
             this.txtNomorHP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNomorHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomorHP.Location = new System.Drawing.Point(52, 751);
+            this.txtNomorHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomorHP.Location = new System.Drawing.Point(52, 750);
             this.txtNomorHP.Name = "txtNomorHP";
-            this.txtNomorHP.Size = new System.Drawing.Size(324, 22);
+            this.txtNomorHP.Size = new System.Drawing.Size(324, 24);
             this.txtNomorHP.TabIndex = 2;
             // 
             // cmbKecamatan
@@ -79,8 +78,7 @@
             this.cmbKecamatan.Location = new System.Drawing.Point(52, 639);
             this.cmbKecamatan.Name = "cmbKecamatan";
             this.cmbKecamatan.Size = new System.Drawing.Size(324, 32);
-            this.cmbKecamatan.TabIndex = 3;
-            this.cmbKecamatan.SelectedIndexChanged += new System.EventHandler(this.cmbKecamatan_SelectedIndexChanged_1);
+            this.cmbKecamatan.TabIndex = 24;
             // 
             // cmbKelurahan
             // 
@@ -124,9 +122,9 @@
             this.lblTotalPembayaran.ForeColor = System.Drawing.Color.Green;
             this.lblTotalPembayaran.Location = new System.Drawing.Point(643, 842);
             this.lblTotalPembayaran.Name = "lblTotalPembayaran";
-            this.lblTotalPembayaran.Size = new System.Drawing.Size(67, 25);
+            this.lblTotalPembayaran.Size = new System.Drawing.Size(32, 25);
             this.lblTotalPembayaran.TabIndex = 18;
-            this.lblTotalPembayaran.Text = "Senin";
+            this.lblTotalPembayaran.Text = "\" \"";
             // 
             // lblNamaLayanan
             // 
@@ -136,9 +134,9 @@
             this.lblNamaLayanan.ForeColor = System.Drawing.Color.Green;
             this.lblNamaLayanan.Location = new System.Drawing.Point(81, 137);
             this.lblNamaLayanan.Name = "lblNamaLayanan";
-            this.lblNamaLayanan.Size = new System.Drawing.Size(67, 25);
+            this.lblNamaLayanan.Size = new System.Drawing.Size(32, 25);
             this.lblNamaLayanan.TabIndex = 19;
-            this.lblNamaLayanan.Text = "Senin";
+            this.lblNamaLayanan.Text = "\" \"";
             // 
             // lblRingkasanTanggal
             // 
@@ -148,9 +146,9 @@
             this.lblRingkasanTanggal.ForeColor = System.Drawing.Color.Green;
             this.lblRingkasanTanggal.Location = new System.Drawing.Point(81, 175);
             this.lblRingkasanTanggal.Name = "lblRingkasanTanggal";
-            this.lblRingkasanTanggal.Size = new System.Drawing.Size(67, 25);
+            this.lblRingkasanTanggal.Size = new System.Drawing.Size(32, 25);
             this.lblRingkasanTanggal.TabIndex = 20;
-            this.lblRingkasanTanggal.Text = "Senin";
+            this.lblRingkasanTanggal.Text = "\" \"";
             // 
             // lblRingkasanJam
             // 
@@ -160,27 +158,19 @@
             this.lblRingkasanJam.ForeColor = System.Drawing.Color.Green;
             this.lblRingkasanJam.Location = new System.Drawing.Point(81, 214);
             this.lblRingkasanJam.Name = "lblRingkasanJam";
-            this.lblRingkasanJam.Size = new System.Drawing.Size(67, 25);
+            this.lblRingkasanJam.Size = new System.Drawing.Size(32, 25);
             this.lblRingkasanJam.TabIndex = 21;
-            this.lblRingkasanJam.Text = "Senin";
+            this.lblRingkasanJam.Text = "\" \"";
             // 
             // cmbMetodePembayaran
             // 
             this.cmbMetodePembayaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMetodePembayaran.ForeColor = System.Drawing.Color.Black;
             this.cmbMetodePembayaran.FormattingEnabled = true;
-            this.cmbMetodePembayaran.Location = new System.Drawing.Point(435, 741);
+            this.cmbMetodePembayaran.Location = new System.Drawing.Point(435, 745);
             this.cmbMetodePembayaran.Name = "cmbMetodePembayaran";
             this.cmbMetodePembayaran.Size = new System.Drawing.Size(324, 32);
             this.cmbMetodePembayaran.TabIndex = 22;
-            // 
-            // lbJasa
-            // 
-            this.lbJasa.FormattingEnabled = true;
-            this.lbJasa.Location = new System.Drawing.Point(68, 304);
-            this.lbJasa.Name = "lbJasa";
-            this.lbJasa.Size = new System.Drawing.Size(163, 69);
-            this.lbJasa.TabIndex = 23;
             // 
             // FormCheckout
             // 
@@ -189,7 +179,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(831, 1061);
-            this.Controls.Add(this.lbJasa);
             this.Controls.Add(this.cmbMetodePembayaran);
             this.Controls.Add(this.lblRingkasanJam);
             this.Controls.Add(this.lblRingkasanTanggal);
@@ -228,6 +217,5 @@
         private System.Windows.Forms.Label lblRingkasanTanggal;
         private System.Windows.Forms.Label lblRingkasanJam;
         private System.Windows.Forms.ComboBox cmbMetodePembayaran;
-        private System.Windows.Forms.ListBox lbJasa;
     }
 }

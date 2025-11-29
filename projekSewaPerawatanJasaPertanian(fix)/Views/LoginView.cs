@@ -77,16 +77,34 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views
                     }
                     else
                     {
-                        UserDashboardView userView = new UserDashboardView();
-                        userView.FormClosed += (s, args) => this.Close();
-                        userView.Show();
-                        this.Hide();
-                        //    UserDashboardView userDashboardView = new UserDashboardView();
-                        //    userDashboardView.Show();
-                        //    this.Hide();
+                        //UserDashboardView userView = new UserDashboardView();
+                        //userView.FormClosed += (s, args) => this.Close();
+                        //userView.Show();
+                        //this.Hide();
+                        
+                            // 1. Ambil ID Pengguna dari sesi yang baru disimpan menggunakan metode baru
+                            int currentUserId = AppSession.GetCurrentUserId();
+
+                            // Validasi sederhana (Meskipun GetCurrentUserId sudah mencegah null, 
+                            // kita cek nilai 0 untuk berjaga-jaga)
+                            if (currentUserId <= 0)
+                            {
+                                MessageBox.Show("Gagal mendapatkan ID pengguna. Coba lagi.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                AppSession.Logout();
+                                return;
+                            }
+
+                            // 2. PANGGIL USERDASHBOARDVIEW DENGAN ID PENGGUNA
+                            UserDashboardView userView = new UserDashboardView(currentUserId);
+
+                            userView.FormClosed += (s, args) => this.Close();
+                            userView.Show();
+                            this.Hide();
+                        }
+
                     }
 
-                }
+                
                 else
                 {
                     MessageBox.Show("Username atau Password salah. Silahkan Coba Lagi!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

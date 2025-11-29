@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
+
 using System.Windows.Forms;
 
 
@@ -348,86 +349,243 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Controllers
             return jasaList;
         }
 
-        public int InsertPemesananLengkap(CheckoutModel checkout, List<JasaModel> jasaList, string buktiPembayaran)
+        //        public int InsertPemesananLengkap(CheckoutModel checkout, List<JasaModel> jasaList, string buktiPembayaran)
+        //        {
+        //            int idTransaksiBaru = 0;
+
+        //            using (var conn = _dbContext.GetConnection())
+        //            {
+        //                conn.Open();
+
+        //                using (var trans = conn.BeginTransaction())
+        //                {
+        //                    try
+        //                    {
+        //                        // ----- Insert transaksi -----
+        //                        string queryTrans =
+        //                            @"INSERT INTO transaksi 
+        //                                (id_pengguna, nama_penerima, nomor_hp, alamat_lengkap, id_kecamatan, id_kelurahan, 
+        //                                 metode_pembayaran, status, total_harga, bukti_pembayaran)
+        //                              VALUES 
+        //                                (@id_pengguna, @nama, @hp, @alamat, @kec, @kel, @metode, @status, @total, @bukti)
+        //                              RETURNING id_transaksi";
+
+        //                        using (var cmd = new NpgsqlCommand(queryTrans, conn))
+        //                        {
+        //                            cmd.Parameters.AddWithValue("@id_pengguna", checkout.IdPengguna);
+        //                            cmd.Parameters.AddWithValue("@nama", checkout.NamaPenerima);
+        //                            cmd.Parameters.AddWithValue("@hp", checkout.NomorHP);
+        //                            cmd.Parameters.AddWithValue("@alamat", checkout.AlamatLengkap);
+        //                            cmd.Parameters.AddWithValue("@kec", checkout.IdKecamatan);
+        //                            cmd.Parameters.AddWithValue("@kel", checkout.IdKelurahan);
+        //                            cmd.Parameters.AddWithValue("@metode", checkout.MetodePembayaran);
+        //                            cmd.Parameters.AddWithValue("@status", checkout.Status);
+        //                            cmd.Parameters.AddWithValue("@total", checkout.TotalHarga);
+
+        //                            if (buktiPembayaran == null)
+        //                                cmd.Parameters.AddWithValue("@bukti", DBNull.Value);
+        //                            else
+        //                                cmd.Parameters.AddWithValue("@bukti", buktiPembayaran);
+
+        //                            idTransaksiBaru = Convert.ToInt32(cmd.ExecuteScalar());
+        //                        }
+
+        //                        // ----- Insert detail transaksi -----
+        //                        string queryDetail =
+        //                            @"INSERT INTO detail_transaksi (id_transaksi, id_jasa, nama_jasa, harga)
+        //                              VALUES (@id_transaksi, @id_jasa, @nama_jasa, @harga)";
+
+        //                        foreach (var item in jasaList)
+        //                        {
+        //                            using (var cmd = new NpgsqlCommand(queryDetail, conn))
+        //                            {
+        //                                cmd.Parameters.AddWithValue("@id_transaksi", idTransaksiBaru);
+        //                                cmd.Parameters.AddWithValue("@id_jasa", item.IdJasa);
+        //                                cmd.Parameters.AddWithValue("@nama_jasa", item.NamaJasa);
+        //                                cmd.Parameters.AddWithValue("@harga", item.HargaJasa);
+
+        //                                cmd.ExecuteNonQuery();
+        //                            }
+        //                        }
+
+        //                        trans.Commit();
+        //                    }
+        //                    catch
+        //                    {
+        //                        trans.Rollback();
+        //                        throw;
+        //                    }
+        //                }
+        //            }
+
+        //            return idTransaksiBaru;
+        //        }
+        //        public DataTable GetKecamatan()
+        //        {
+        //            using (var conn = _dbContext.GetConnection())
+        //            {
+        //                conn.Open();
+
+        //                string q = "SELECT id_kecamatan, nama_kecamatan FROM kecamatan";
+        //                using (var da = new NpgsqlDataAdapter(q, conn))
+        //                {
+        //                    DataTable dt = new DataTable();
+        //                    da.Fill(dt);
+        //                    return dt;
+        //                }
+        //            }
+        //        }
+
+        //        public DataTable GetKelurahan(int idKecamatan)
+        //        {
+        //            using (var conn = _dbContext.GetConnection())
+        //            {
+        //                conn.Open();
+
+        //                string q = "SELECT id_kelurahan, nama_kelurahan FROM kelurahan WHERE id_kecamatan=@id";
+        //                using (var cmd = new NpgsqlCommand(q, conn))
+        //                {
+        //                    cmd.Parameters.AddWithValue("@id", idKecamatan);
+
+        //                    using (var da = new NpgsqlDataAdapter(cmd))
+        //                    {
+        //                        DataTable dt = new DataTable();
+        //                        da.Fill(dt);
+        //                        return dt;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        public bool UpdateBuktiPembayaran(int idTransaksi, byte[] bukti)
+        //        {
+        //            string query = @"UPDATE transaksi 
+        //                     SET bukti_pembayaran = @bukti
+        //                     WHERE id_transaksi = @id";
+
+        //            using (var conn = _dbContext.GetConnection())
+        //            using (var cmd = new NpgsqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@bukti", bukti);
+        //                cmd.Parameters.AddWithValue("@id", idTransaksi);
+
+        //                return cmd.ExecuteNonQuery() > 0;
+        //            }
+        //        }
+        //        public void KurangiSlotByTransaksi(int idTransaksi)
+        //        {
+        //            string query = @"
+        //        UPDATE jadwaljasa j
+        //        SET slot_ketersediaan = slot_ketersediaan - 1
+        //        FROM detailtransaksi d
+        //        WHERE d.id_transaksi = @id
+        //        AND d.id_jasa = j.id_jasa";
+
+        //            using (var conn = _dbContext.GetConnection())
+        //            using (var cmd = new NpgsqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@id", idTransaksi);
+        //                cmd.ExecuteNonQuery();
+        //            }
+        //        }
+
+        //        public int InsertTransaksi(
+        //    int idPelanggan,
+        //    string namaPenerima,
+        //    string nomorHP,
+        //    string alamatLengkap,
+        //    int idKecamatan,
+        //    int idKelurahan,
+        //    string metodePembayaran,
+        //    decimal totalBayar)
+        //        {
+        //            using (var conn = _dbContext.GetConnection())
+        //            {
+        //                conn.Open();
+
+        //                string query = @"
+        //            INSERT INTO transaksi
+        //            (id_pengguna, nama_penerima, no_hp, alamat_lengkap, 
+        //             id_kelurahan, id_kecamatan, tanggal_transaksi, 
+        //             metode_pembayaran, status, total_bayar)
+        //            VALUES
+        //            (@id, @nama, @hp, @alamat, @kel, @kec, NOW(),
+        //             @metode, 'Menunggu Bukti', @total)
+        //            RETURNING id_transaksi;
+        //        ";
+
+        //                using (var cmd = new NpgsqlCommand(query, conn))
+        //                {
+        //                    cmd.Parameters.AddWithValue("@id", idPelanggan);
+        //                    cmd.Parameters.AddWithValue("@nama", namaPenerima);
+        //                    cmd.Parameters.AddWithValue("@hp", nomorHP);
+        //                    cmd.Parameters.AddWithValue("@alamat", alamatLengkap);
+        //                    cmd.Parameters.AddWithValue("@kel", idKelurahan);
+        //                    cmd.Parameters.AddWithValue("@kec", idKecamatan);
+        //                    cmd.Parameters.AddWithValue("@metode", metodePembayaran);
+        //                    cmd.Parameters.AddWithValue("@total", totalBayar);
+
+        //                    int newId = Convert.ToInt32(cmd.ExecuteScalar());
+        //                    return newId;
+        //                }
+        //            }
+        //        }
+        //        public void InsertDetailTransaksi(int idTransaksi, JasaModel jasa)
+        //        {
+        //            using (var conn = _dbContext.GetConnection())
+        //            {
+        //                conn.Open();
+
+        //                string query = @"
+        //            INSERT INTO detailtransaksi
+        //            (id_transaksi, id_jasa, jumlah_pesanan, subtotal_harga)
+        //            VALUES
+        //            (@id_trans, @id_jasa, 1, @harga);
+        //        ";
+
+        //                using (var cmd = new NpgsqlCommand(query, conn))
+        //                {
+        //                    cmd.Parameters.AddWithValue("@id_trans", idTransaksi);
+        //                    cmd.Parameters.AddWithValue("@id_jasa", jasa.IdJasa);
+        //                    cmd.Parameters.AddWithValue("@harga", jasa.HargaJasa);
+
+        //                    cmd.ExecuteNonQuery();
+        //                }
+        //            }
+        //        }
+
+
+        //======================================================================================================
+
+        // File: Controllers/DataServiceController.cs
+
+
+
+        // PASTIKAN Anda memiliki akses ke DbContext Anda di sini (Dependency Injection)
+        // Contoh ini mengasumsikan Anda mendapatkan instance DbContext dari Service Provider
+        //public class DataServiceController
+        //{
+        //    private readonly DbContext _context;
+
+        //    // Constructor menerima DbContext
+        //    public DataServiceController(DbContext context)
+        //    {
+        //        _context = context;
+        //    }
+
+        // --- A. DATA ALAMAT (Menggunakan LINQ) ---
+
+        // Menggunakan DataTable untuk ComboBox Kecamatan (Jika diperlukan untuk kemudahan binding)
+        public DataTable GetAllKecamatan()
         {
-            int idTransaksiBaru = 0;
+            string sql = "SELECT id_kecamatan, nama_kecamatan FROM kecamatan ORDER BY nama_kecamatan";
 
-            using (var conn = _dbContext.GetConnection())
+            // Menggunakan GetConnection() dari DbContext kustom
+            using (NpgsqlConnection conn = _dbContext.GetConnection())
             {
-                conn.Open();
-
-                using (var trans = conn.BeginTransaction())
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    try
-                    {
-                        // ----- Insert transaksi -----
-                        string queryTrans =
-                            @"INSERT INTO transaksi 
-                                (id_pengguna, nama_penerima, nomor_hp, alamat_lengkap, id_kecamatan, id_kelurahan, 
-                                 metode_pembayaran, status, total_harga, bukti_pembayaran)
-                              VALUES 
-                                (@id_pengguna, @nama, @hp, @alamat, @kec, @kel, @metode, @status, @total, @bukti)
-                              RETURNING id_transaksi";
-
-                        using (var cmd = new NpgsqlCommand(queryTrans, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@id_pengguna", checkout.IdPengguna);
-                            cmd.Parameters.AddWithValue("@nama", checkout.NamaPenerima);
-                            cmd.Parameters.AddWithValue("@hp", checkout.NomorHP);
-                            cmd.Parameters.AddWithValue("@alamat", checkout.AlamatLengkap);
-                            cmd.Parameters.AddWithValue("@kec", checkout.IdKecamatan);
-                            cmd.Parameters.AddWithValue("@kel", checkout.IdKelurahan);
-                            cmd.Parameters.AddWithValue("@metode", checkout.MetodePembayaran);
-                            cmd.Parameters.AddWithValue("@status", checkout.Status);
-                            cmd.Parameters.AddWithValue("@total", checkout.TotalHarga);
-
-                            if (buktiPembayaran == null)
-                                cmd.Parameters.AddWithValue("@bukti", DBNull.Value);
-                            else
-                                cmd.Parameters.AddWithValue("@bukti", buktiPembayaran);
-
-                            idTransaksiBaru = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-
-                        // ----- Insert detail transaksi -----
-                        string queryDetail =
-                            @"INSERT INTO detail_transaksi (id_transaksi, id_jasa, nama_jasa, harga)
-                              VALUES (@id_transaksi, @id_jasa, @nama_jasa, @harga)";
-
-                        foreach (var item in jasaList)
-                        {
-                            using (var cmd = new NpgsqlCommand(queryDetail, conn))
-                            {
-                                cmd.Parameters.AddWithValue("@id_transaksi", idTransaksiBaru);
-                                cmd.Parameters.AddWithValue("@id_jasa", item.IdJasa);
-                                cmd.Parameters.AddWithValue("@nama_jasa", item.NamaJasa);
-                                cmd.Parameters.AddWithValue("@harga", item.HargaJasa);
-
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-
-                        trans.Commit();
-                    }
-                    catch
-                    {
-                        trans.Rollback();
-                        throw;
-                    }
-                }
-            }
-
-            return idTransaksiBaru;
-        }
-        public DataTable GetKecamatan()
-        {
-            using (var conn = _dbContext.GetConnection())
-            {
-                conn.Open();
-
-                string q = "SELECT id_kecamatan, nama_kecamatan FROM kecamatan";
-                using (var da = new NpgsqlDataAdapter(q, conn))
-                {
+                    conn.Open();
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     return dt;
@@ -435,127 +593,147 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Controllers
             }
         }
 
-        public DataTable GetKelurahan(int idKecamatan)
+        public List<KelurahanModel> GetKelurahanByKecamatan(int idKecamatan)
         {
-            using (var conn = _dbContext.GetConnection())
+            List<KelurahanModel> kelurahanList = new List<KelurahanModel>();
+
+            string sql = "SELECT id_kelurahan, nama_kelurahan FROM kelurahan WHERE id_kecamatan = @idKecamatan ORDER BY nama_kelurahan";
+
+            using (NpgsqlConnection conn = _dbContext.GetConnection())
             {
-                conn.Open();
-
-                string q = "SELECT id_kelurahan, nama_kelurahan FROM kelurahan WHERE id_kecamatan=@id";
-                using (var cmd = new NpgsqlCommand(q, conn))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", idKecamatan);
+                    cmd.Parameters.AddWithValue("@idKecamatan", idKecamatan);
+                    conn.Open();
 
-                    using (var da = new NpgsqlDataAdapter(cmd))
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        return dt;
+                        while (reader.Read())
+                        {
+                            KelurahanModel kel = new KelurahanModel
+                            {
+                                IdKelurahan = reader.GetInt32(reader.GetOrdinal("id_kelurahan")),
+                                NamaKelurahan = reader.GetString(reader.GetOrdinal("nama_kelurahan"))
+                            };
+                            kelurahanList.Add(kel);
+                        }
                     }
                 }
             }
-        }
-        public bool UpdateBuktiPembayaran(int idTransaksi, byte[] bukti)
-        {
-            string query = @"UPDATE transaksi 
-                     SET bukti_pembayaran = @bukti
-                     WHERE id_transaksi = @id";
-
-            using (var conn = _dbContext.GetConnection())
-            using (var cmd = new NpgsqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@bukti", bukti);
-                cmd.Parameters.AddWithValue("@id", idTransaksi);
-
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
-        public void KurangiSlotByTransaksi(int idTransaksi)
-        {
-            string query = @"
-        UPDATE jadwaljasa j
-        SET slot_ketersediaan = slot_ketersediaan - 1
-        FROM detailtransaksi d
-        WHERE d.id_transaksi = @id
-        AND d.id_jasa = j.id_jasa";
-
-            using (var conn = _dbContext.GetConnection())
-            using (var cmd = new NpgsqlCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@id", idTransaksi);
-                cmd.ExecuteNonQuery();
-            }
+            return kelurahanList;
         }
 
-        public int InsertTransaksi(
-    int idPelanggan,
-    string namaPenerima,
-    string nomorHP,
-    string alamatLengkap,
-    int idKecamatan,
-    int idKelurahan,
-    string metodePembayaran,
-    decimal totalBayar)
+
+        // --- B. LOGIKA TRANSAKSI (Insert dan Update Slot) ---
+
+        public int InsertPemesananLengkap(CheckoutModel model, List<JasaModel> jasaList)
         {
-            using (var conn = _dbContext.GetConnection())
+            int idTransaksiBaru = 0;
+
+            using (NpgsqlConnection conn = _dbContext.GetConnection())
             {
                 conn.Open();
+                NpgsqlTransaction transaction = conn.BeginTransaction();
 
-                string query = @"
-            INSERT INTO transaksi
-            (id_pengguna, nama_penerima, no_hp, alamat_lengkap, 
-             id_kelurahan, id_kecamatan, tanggal_transaksi, 
-             metode_pembayaran, status, total_bayar)
-            VALUES
-            (@id, @nama, @hp, @alamat, @kel, @kec, NOW(),
-             @metode, 'Menunggu Bukti', @total)
-            RETURNING id_transaksi;
-        ";
-
-                using (var cmd = new NpgsqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@id", idPelanggan);
-                    cmd.Parameters.AddWithValue("@nama", namaPenerima);
-                    cmd.Parameters.AddWithValue("@hp", nomorHP);
-                    cmd.Parameters.AddWithValue("@alamat", alamatLengkap);
-                    cmd.Parameters.AddWithValue("@kel", idKelurahan);
-                    cmd.Parameters.AddWithValue("@kec", idKecamatan);
-                    cmd.Parameters.AddWithValue("@metode", metodePembayaran);
-                    cmd.Parameters.AddWithValue("@total", totalBayar);
+                    // 1. INSERT Data ke Tabel Transaksi UTAMA
+                    string sqlInsertTransaksi = @"
+                INSERT INTO transaksi (
+                    id_pengguna, tanggal_transaksi, total_harga,
+                    metode_pembayaran, status_transaksi, 
+                    nama_penerima, no_hp, alamat_lengkap, id_kelurahan, id_kecamatan,
+                    bukti_pembayaran
+                )
+                VALUES (
+                    @idPengguna, NOW(), @totalHarga, 
+                    @metodePembayaran, @status, 
+                    @namaPenerima, @noHp, @alamatLengkap, @idKelurahan, @idKecamatan,
+                    @buktiPembayaran
+                )
+                RETURNING id_transaksi;";
 
-                    int newId = Convert.ToInt32(cmd.ExecuteScalar());
-                    return newId;
+                    using (NpgsqlCommand cmdInsertTransaksi = new NpgsqlCommand(sqlInsertTransaksi, conn, transaction))
+                    {
+                        // ... (Pasang semua parameter dari modelDasar, KECUALI id_jadwal dan id_jasa) ...
+
+                        cmdInsertTransaksi.Parameters.AddWithValue("@idPengguna", model.IdPengguna);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@totalHarga", NpgsqlTypes.NpgsqlDbType.Numeric, model.TotalHarga);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@metodePembayaran", model.MetodePembayaran);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@status", model.Status);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@namaPenerima", model.NamaPenerima);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@noHp", model.NomorHP);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@alamatLengkap", model.AlamatLengkap);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@idKelurahan", model.IdKelurahan);
+                        cmdInsertTransaksi.Parameters.AddWithValue("@idKecamatan", model.IdKecamatan);
+
+                        if (string.IsNullOrEmpty(model.BuktiPembayaranFilePath))
+                        {
+                            cmdInsertTransaksi.Parameters.AddWithValue("@buktiPembayaran", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmdInsertTransaksi.Parameters.AddWithValue("@buktiPembayaran", model.BuktiPembayaranFilePath);
+                        }
+
+                        idTransaksiBaru = Convert.ToInt32(cmdInsertTransaksi.ExecuteScalar());
+                    }
+
+                    // 2. INSERT Data ke Tabel Detail Transaksi & UPDATE Slot Jadwal
+                    string sqlInsertDetail = @"
+                INSERT INTO detail_transaksi (id_transaksi, id_jadwal, id_jasa, harga_satuan)
+                VALUES (@idTransaksi, @idJadwal, @idJasa, @hargaSatuan);";
+
+                    string sqlUpdateJadwal = @"
+                UPDATE jadwal 
+                SET slot_ketersediaan = slot_ketersediaan - 1 
+                WHERE id_jadwal = @idJadwalUpdate AND slot_ketersediaan > 0;";
+
+                    // LOOP melalui setiap jasa yang dipilih
+                    foreach (var jasa in jasaList)
+                    {
+                        // A. INSERT Detail Transaksi
+                        using (NpgsqlCommand cmdDetail = new NpgsqlCommand(sqlInsertDetail, conn, transaction))
+                        {
+                            cmdDetail.Parameters.AddWithValue("@idTransaksi", idTransaksiBaru);
+                            cmdDetail.Parameters.AddWithValue("@idJadwal", jasa.IdJadwal);
+                            cmdDetail.Parameters.AddWithValue("@idJasa", jasa.IdJasa);
+                            cmdDetail.Parameters.AddWithValue("@hargaSatuan", NpgsqlTypes.NpgsqlDbType.Numeric, jasa.TotalHarga);
+                            cmdDetail.ExecuteNonQuery();
+                        }
+
+                        // B. UPDATE Slot Jadwal
+                        using (NpgsqlCommand cmdUpdate = new NpgsqlCommand(sqlUpdateJadwal, conn, transaction))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@idJadwalUpdate", jasa.IdJadwal);
+                            int rowsAffected = cmdUpdate.ExecuteNonQuery();
+
+                            if (rowsAffected == 0)
+                            {
+                                throw new Exception($"Slot jadwal untuk Jasa {jasa.NamaJasa} sudah habis.");
+                            }
+                        }
+                    }
+
+                    // 3. COMMIT Transaksi
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw new Exception($"Pemesanan gagal: {ex.Message}");
                 }
             }
-        }
-        public void InsertDetailTransaksi(int idTransaksi, JasaModel jasa)
-        {
-            using (var conn = _dbContext.GetConnection())
-            {
-                conn.Open();
 
-                string query = @"
-            INSERT INTO detailtransaksi
-            (id_transaksi, id_jasa, jumlah_pesanan, subtotal_harga)
-            VALUES
-            (@id_trans, @id_jasa, 1, @harga);
-        ";
-
-                using (var cmd = new NpgsqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id_trans", idTransaksi);
-                    cmd.Parameters.AddWithValue("@id_jasa", jasa.IdJasa);
-                    cmd.Parameters.AddWithValue("@harga", jasa.HargaJasa);
-
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            return idTransaksiBaru;
         }
     }
 }
 
-    
 
-    
+
+
+
+
 
 
