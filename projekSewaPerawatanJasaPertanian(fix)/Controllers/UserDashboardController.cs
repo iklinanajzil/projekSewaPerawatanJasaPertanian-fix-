@@ -43,7 +43,7 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Controllers
                 }
 
                 using (var cmd = new NpgsqlCommand(
-                    "SELECT COUNT(*) FROM transaksi WHERE id_pengguna = @uid AND status = 'Selesai'", conn))
+                    "SELECT COUNT(*) FROM transaksi WHERE id_pengguna = @uid AND status = 'selesai'", conn))
                 {
                     cmd.Parameters.AddWithValue("@uid", userId);
                     selesai = Convert.ToInt32(cmd.ExecuteScalar());

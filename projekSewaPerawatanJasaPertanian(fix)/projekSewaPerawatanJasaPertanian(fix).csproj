@@ -242,7 +242,13 @@
     <Compile Include="Database\DbContext.cs" />
     <Compile Include="Helpers\AppSeassion.cs" />
     <Compile Include="Helpers\PasswordHelper.cs" />
+    <Compile Include="Models\CheckoutModel.cs" />
+    <Compile Include="Models\DetailTransaksiModel.cs" />
     <Compile Include="Models\JasaModel.cs" />
+    <Compile Include="Models\KecamatanModel.cs" />
+    <Compile Include="Models\KelurahanModel.cs" />
+    <Compile Include="Models\SessionManager.cs" />
+    <Compile Include="Models\TransaksiModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,6 +315,12 @@
     <Compile Include="Views\User_View\FormCheckout.Designer.cs">
       <DependentUpon>FormCheckout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\User_View\FormCheckoutPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User_View\FormCheckoutPembayaran.Designer.cs">
+      <DependentUpon>FormCheckoutPembayaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\User_View\JasaCardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -359,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User_View\FormCheckout.resx">
+      <DependentUpon>FormCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User_View\FormCheckoutPembayaran.resx">
+      <DependentUpon>FormCheckoutPembayaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User_View\JasaCardControl.resx">
       <DependentUpon>JasaCardControl.cs</DependentUpon>

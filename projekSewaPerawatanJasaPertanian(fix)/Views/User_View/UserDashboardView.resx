@@ -121,7 +121,7 @@
   <data name="panelcontent.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAatCAYAAAAy51eaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAA/7JJREFUeF7s/QeQXPWZ6P1zXf5vbfm9teV3a+/efffuZb1e22tjL7ZxIudskjGY
+        EQAACxEBf2RfkQAA/7JJREFUeF7s/QeQXPWZ6P1zXf5vbfm9teV3a+/efffuZb1e22tjL7ZxIudskjGY
         jMhgMNFEG4NsjDEZY5IJBmwyiCwQOWeTcxQgUECAEMqa8PvXc0Zn5vTpMCNpZrrV8/lWfcrWTKfpaelw
         +unfOUslSZIkSZIkSZIkSVJbtFT5C5IkSZIkSZIkSZKkJTMDYEmSJEmSJEmSJElqkwyAJUmSJEmSJEmS
         JKlNMgCWJEmSJEmSJEmSpDbJAFiSJEmSJEmSJEmS2iQDYEmSJEmSJEmSJElqkwyAJUmSJEmSJEmSJKlN
@@ -2859,7 +2859,7 @@
   <data name="btnPesanSekarangg.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVMAAABLCAYAAADNuWQ2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAUbhJREFUeF6tncuOvVlS3esFkDxmxDvYc56gHwAmvIGxhOeW55YZ2wN7Bh6ZljB0
+        EQAACxEBf2RfkQAAUbhJREFUeF6tncuOvVlS3esFkDxmxDvYc56gHwAmvIGxhOeW55YZ2wN7Bh6ZljB0
         ZhoZ2WJi0XVOdnPphqbvDW7u16o8p4Aue0fEWrFW7H2yGsxf2vq+82VJDBA/1ooVEfuDD/6B/14++rUf
         ffr4+pMvb5d/+3y7/tLz7fo/n2/X63budW7X1+fb5UvxvO/n6Xb50jrPtytP/r58+fm+fl++/Hx7rbPe
         r79xOL+5nk/1XL/rPZ/39bz8Vv3+refb5bdfbtffWge/n29XOet3fPtKnstXnm7Xr673fF7i2/Pt9av5
@@ -3214,7 +3214,7 @@
   <data name="btnLogOut.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAa0AAACOCAYAAACCGVcbAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAFoFJREFUeF7t3e2TFNW9B3D/hPwJvsprfZ9U+S4vryUPCmRhQRAWomiFgEYJmEJA
+        EQAACxEBf2RfkQAAFoFJREFUeF7t3e2TFNW9B3D/hPwJvsprfZ9U+S4vryUPCmRhQRAWomiFgEYJmEJA
         lLiawoDGiLGohIf4AAmEqNkEYlQILA/L9Cx1K1Tq3rpb96Gu91ZuRec0VefWt3t7bX6np8/pmZ6Z093f
         rvpUKTPd06d353z3dP/69F13jWDRQXC3CoJx1WpNhu32u2G7Pa3a7VthEHwettuaiIg8EffL02G7PXW7
         3X5TtdubwyC4T09Pf0327bVZ0LiooQgoBhMRUV1MR4OPILhP9vuVXNAQpHNGQ4mIqEZut9u3MBLDmTSZ
@@ -3316,7 +3316,7 @@
   <data name="btnPesanSekarang.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVMAAABLCAYAAADNuWQ2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAUbhJREFUeF6tncuOvVlS3esFkDxmxDvYc56gHwAmvIGxhOeW55YZ2wN7Bh6ZljB0
+        DAAACwwBP0AiyAAAUbhJREFUeF6tncuOvVlS3esFkDxmxDvYc56gHwAmvIGxhOeW55YZ2wN7Bh6ZljB0
         ZhoZ2WJi0XVOdnPphqbvDW7u16o8p4Aue0fEWrFW7H2yGsxf2vq+82VJDBA/1ooVEfuDD/6B/14++rUf
         ffr4+pMvb5d/+3y7/tLz7fo/n2/X63budW7X1+fb5UvxvO/n6Xb50jrPtytP/r58+fm+fl++/Hx7rbPe
         r79xOL+5nk/1XL/rPZ/39bz8Vv3+refb5bdfbtffWge/n29XOet3fPtKnstXnm7Xr673fF7i2/Pt9av5

@@ -1,170 +1,167 @@
-﻿using projekSewaPerawatanJasaPertanian_fix_.Controllers;
+﻿
+using Npgsql;
+using projekSewaPerawatanJasaPertanian_fix_.Controllers;
+using projekSewaPerawatanJasaPertanian_fix_.Models;
+using projekSewaPerawatanJasaPertanian_fix_.Database;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
+namespace projekSewaPerawatanJasaPertanian_fix_.Views
 {
     public partial class FormCheckout : Form
     {
-        //private readonly DataServiceController _dataService = new DataServiceController();
-        //private readonly List<int> _idJadwalTerpilih;
-        //private readonly decimal _totalHarga;
-        //private readonly int _idPengguna = 1; // Ganti dengan ID Pengguna yang sedang Login!
+        private readonly DbContext _dbContext;
+        private readonly DataServiceController _controller;
+        private readonly int _idPengguna;
 
-        //// Constructor menerima List ID Jadwal dan Total Harga dari Dashboard
-        //public FormCheckout(List<int> idJadwalTerpilih, decimal totalHarga)
-        //{
-        //    InitializeComponent();
-        //    _idJadwalTerpilih = idJadwalTerpilih;
-        //    _totalHarga = totalHarga;
+        private readonly List<JasaModel> _jasaDipilih;
+        private decimal _totalHarga = 0;
 
-        //    // Tampilkan total harga ke label atau textbox yang sesuai
-        //    lblTotalPembayaran.Text = $"Rp {totalHarga:N0}";
-        //}
+        public FormCheckout(List<JasaModel> jasaDipilih)
+        {
+            InitializeComponent();
 
-        //private void FormCheckout_Load(object sender, EventArgs e)
-        //{
-        //    // 1. Isi Dropdown Kecamatan
-        //    LoadKecamatan();
-        //}
+            _dbContext = new DbContext();
+            _controller = new DataServiceController();
 
-        //private void LoadKecamatan()
-        //{
-        //    try
-        //    {
-        //        DataTable dtKecamatan = _dataService.GetAllKecamatan();
+            _jasaDipilih = jasaDipilih;
+            //_idPengguna = userId;
+        }
 
-        //        // Konfigurasi ComboBox Kecamatan
-        //        cmbKecamatan.DataSource = dtKecamatan;
-        //        cmbKecamatan.DisplayMember = "nama_kecamatan";
-        //        cmbKecamatan.ValueMember = "id_kecamatan";
+        private void FormCheckout_Load(object sender, EventArgs e)
+        {
+            decimal total = 0;
 
-        //        // Panggil LoadKelurahan untuk mengisi Kelurahan default (jika ada data)
-        //        if (dtKecamatan.Rows.Count > 0)
-        //        {
-        //            LoadKelurahan();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Gagal memuat data Kecamatan: " + ex.Message);
-        //    }
-        //}
+            foreach (var jasa in _jasaDipilih)
+            {
+                lbJasa.Items.Add($"{jasa.NamaJasa} - Rp {jasa.HargaJasa:N0}");
+                total += jasa.HargaJasa;
+            }
 
-        //private void LoadKelurahan()
-        //{
-        //    if (cmbKecamatan.SelectedValue != null && cmbKecamatan.SelectedValue is int idKecamatan)
-        //    {
-        //        try
-        //        {
-        //            DataTable dtKelurahan = _dataService.GetKelurahanByKecamatan(idKecamatan);
+            lblTotalPembayaran.Text = $"Rp {total:N0}";
+            LoadKecamatan();
+        }
 
-        //            // Konfigurasi ComboBox Kelurahan
-        //            cmbKelurahan.DataSource = dtKelurahan;
-        //            cmbKelurahan.DisplayMember = "nama_kelurahan";
-        //            cmbKelurahan.ValueMember = "id_kelurahan";
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Gagal memuat data Kelurahan: " + ex.Message);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        cmbKelurahan.DataSource = null;
-        //    }
-        //}
+        private void LoadKecamatan()
+        {
+            using (NpgsqlConnection conn = _dbContext.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT id_kecamatan, nama_kecamatan FROM kecamatan ORDER BY nama_kecamatan",
+                    conn);
 
-        //// Event saat Kecamatan diganti (Cascading Dropdown)
-        //private void cmbKecamatan_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (cmbKecamatan.SelectedValue != null && cmbKecamatan.SelectedValue is int)
-        //    {
-        //        LoadKelurahan();
-        //    }
-        //}
+                var reader = cmd.ExecuteReader();
+                Dictionary<int, string> data = new Dictionary<int, string>();
 
-        //// --- Logika Tombol Lanjut ke Pembayaran (Pop-up 1 ke Pop-up 2) ---
-        //private void btnLanjutPembayaran_Click(object sender, EventArgs e)
-        //{
-        //    // Validasi input dasar
-        //    if (string.IsNullOrWhiteSpace(txtNamaPenerima.Text) ||
-        //        string.IsNullOrWhiteSpace(txtNomorHp.Text) ||
-        //        string.IsNullOrWhiteSpace(txtAlamatLengkap.Text) ||
-        //        cmbKecamatan.SelectedValue == null || cmbKelurahan.SelectedValue == null)
-        //    {
-        //        MessageBox.Show("Mohon lengkapi semua data penerima dan alamat.");
-        //        return;
-        //    }
+                while (reader.Read())
+                    data.Add(reader.GetInt32(0), reader.GetString(1));
 
-        //    // Tampilkan Pop-up Pemilihan Pembayaran (Anggap Anda buat Form terpisah untuk ini)
-        //    // Namun, untuk menyederhanakan, anggap kita pindah ke Tab atau Panel di Form ini.
+                cmbKecamatan.DataSource = new BindingSource(data, null);
+                cmbKecamatan.DisplayMember = "Value";
+                cmbKecamatan.ValueMember = "Key";
+            }
+        }
 
-        //    // Logika untuk menampilkan Panel Pembayaran (pop-up 2)
-        //    panelDetailPemesanan.Visible = false;
-        //    panelPembayaran.Visible = true;
-        //}
 
-        //// --- Logika Tombol Konfirmasi Pesanan (Pop-up 2, Finalisasi) ---
-        //private void btnKonfirmasiPesanan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Ambil data dari kontrol input (harus dilakukan validasi lagi jika perlu)
-        //        string namaPenerima = txtNamaPenerima.Text;
-        //        string noHp = txtNomorHp.Text;
-        //        string alamatLengkap = txtAlamatLengkap.Text;
-        //        int idKecamatan = (int)cmbKecamatan.SelectedValue;
-        //        int idKelurahan = (int)cmbKelurahan.SelectedValue;
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            DialogResult konfirmasi = MessageBox.Show(
+            "Apakah Anda yakin ingin membatalkan pesanan ini?",
+            "Konfirmasi Pembatalan",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
 
-        //        // Ambil metode pembayaran yang dipilih (Contoh: dari RadioButton)
-        //        string metodePembayaran = GetSelectedMetodePembayaran();
+            if (konfirmasi == DialogResult.Yes)
+            {
+                // 1. Set DialogResult ke Cancel (opsional, tetapi praktik yang baik)
+                this.DialogResult = DialogResult.Cancel;
 
-        //        if (string.IsNullOrEmpty(metodePembayaran))
-        //        {
-        //            MessageBox.Show("Mohon pilih metode pembayaran.");
-        //            return;
-        //        }
+                // 2. Tutup Form Checkout
+                this.Close();
+            }
+        }
 
-        //        // Panggil Controller untuk menyimpan transaksi
-        //        _dataService.InsertTransaksi(
-        //            _idPengguna,
-        //            _idJadwalTerpilih,
-        //            namaPenerima,
-        //            noHp,
-        //            alamatLengkap,
-        //            idKelurahan,
-        //            idKecamatan,
-        //            metodePembayaran
-        //        );
+        private void cmbKecamatan_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int idKec = ((KeyValuePair<int, string>)cmbKecamatan.SelectedItem).Key;
 
-        //        MessageBox.Show("Pemesanan berhasil! Silakan lakukan pembayaran sesuai instruksi.");
-        //        this.Close(); // Tutup Form Checkout
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Gagal menyimpan transaksi: " + ex.Message, "Error Transaksi");
-        //    }
-        //}
+            using (NpgsqlConnection conn = _dbContext.GetConnection())
+            {
+                conn.Open();
+                var cmd = new NpgsqlCommand(
+                    "SELECT id_kelurahan, nama_kelurahan FROM kelurahan WHERE id_kecamatan = @id ORDER BY nama_kelurahan",
+                    conn);
 
-        //// Contoh fungsi untuk mendapatkan metode pembayaran dari Radio Button/Group Box
-        //private string GetSelectedMetodePembayaran()
-        //{
-        //    // Anda harus mengimplementasikan logika ini sesuai desain Form Anda
-        //    // Contoh: Mencari RadioButton yang dicentang di GroupBox bernama gbMetodePembayaran
-        //    // if (rbCash.Checked) return "Cash";
-        //    // if (rbBCA.Checked) return "Transfer BCA";
+                cmd.Parameters.AddWithValue("@id", idKec);
 
-        //    return "Metode Belum Dipilih"; // Placeholder
-        //}
+                var reader = cmd.ExecuteReader();
+                Dictionary<int, string> data = new Dictionary<int, string>();
+
+                while (reader.Read())
+                    data.Add(reader.GetInt32(0), reader.GetString(1));
+
+                cmbKelurahan.DataSource = new BindingSource(data, null);
+                cmbKelurahan.DisplayMember = "Value";
+                cmbKelurahan.ValueMember = "Key";
+            }
+
+        }
+
+        private void btnLanjutPembayaran_Click_1(object sender, EventArgs e)
+        {
+            if (txtNamaPenerima.Text == "" || txtNomorHP.Text == "" || txtAlamatLengkap.Text == "")
+            {
+                MessageBox.Show("Lengkapi semua data penerima.");
+                return;
+            }
+
+            int idKec = ((KeyValuePair<int, string>)cmbKecamatan.SelectedItem).Key;
+            int idKel = ((KeyValuePair<int, string>)cmbKelurahan.SelectedItem).Key;
+
+            // -----------------------------
+            // INSERT TRANSAKSI DAN DAPATKAN ID
+            // -----------------------------
+            decimal totalHarga = 0;
+            foreach (var j in _jasaDipilih)
+            {
+                totalHarga += j.HargaJasa;
+            }
+
+            int idTransaksi = _controller.InsertTransaksi(
+                _idPengguna,
+                txtNamaPenerima.Text,
+                txtNomorHP.Text,
+                txtAlamatLengkap.Text,
+                idKec,
+                idKel,
+                "Transfer Bank",   // metode pembayaran contoh
+                totalHarga
+            );
+
+            if (idTransaksi <= 0)
+            {
+                MessageBox.Show("Gagal membuat transaksi!");
+                return;
+            }
+
+            // -----------------------------
+            // BUKA FORM PEMBAYARAN
+            // -----------------------------
+            FormCheckoutPembayaran f = new FormCheckoutPembayaran(
+                _jasaDipilih,
+                txtNamaPenerima.Text,
+                txtNomorHP.Text,
+                txtAlamatLengkap.Text,
+                idKec,
+                idKel,
+                idTransaksi,
+                _controller
+            );
+
+            f.Show();
+
+        }
     }
 }
-    
-

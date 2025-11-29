@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboardView));
             this.panelscroll = new System.Windows.Forms.Panel();
             this.panelcontent = new System.Windows.Forms.Panel();
+            this.btnPesanSekarangg = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.btnPesanSekarang = new System.Windows.Forms.Button();
             this.flowLayoutPanelLayanan = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTotalPesanan = new System.Windows.Forms.Label();
             this.lblSedangBerlangsung = new System.Windows.Forms.Label();
-            this.lblSelesai = new System.Windows.Forms.Label();
             this.lblTotalPengeluaran = new System.Windows.Forms.Label();
+            this.lblTotalPesanan = new System.Windows.Forms.Label();
+            this.lblSelesai = new System.Windows.Forms.Label();
             this.linkRiwayatTransaksi = new System.Windows.Forms.LinkLabel();
             this.linkKeRegister = new System.Windows.Forms.LinkLabel();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnPesanSekarangg = new System.Windows.Forms.Button();
             this.panelscroll.SuspendLayout();
             this.panelcontent.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,7 +73,32 @@
             this.panelcontent.Name = "panelcontent";
             this.panelcontent.Size = new System.Drawing.Size(1930, 1709);
             this.panelcontent.TabIndex = 0;
-            this.panelcontent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelcontent_Paint);
+            // 
+            // btnPesanSekarangg
+            // 
+            this.btnPesanSekarangg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesanSekarangg.BackgroundImage")));
+            this.btnPesanSekarangg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPesanSekarangg.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesanSekarangg.ForeColor = System.Drawing.Color.Green;
+            this.btnPesanSekarangg.Location = new System.Drawing.Point(1521, 1601);
+            this.btnPesanSekarangg.Name = "btnPesanSekarangg";
+            this.btnPesanSekarangg.Size = new System.Drawing.Size(351, 81);
+            this.btnPesanSekarangg.TabIndex = 14;
+            this.btnPesanSekarangg.Text = "PESAN SEKARANG";
+            this.btnPesanSekarangg.UseVisualStyleBackColor = true;
+            this.btnPesanSekarangg.Click += new System.EventHandler(this.btnPesanSekarangg_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.BackgroundImage")));
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogOut.Location = new System.Drawing.Point(1690, 21);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(179, 69);
+            this.btnLogOut.TabIndex = 1;
+            this.btnLogOut.Text = "    ";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnPesanSekarang
             // 
@@ -87,7 +112,6 @@
             this.btnPesanSekarang.TabIndex = 13;
             this.btnPesanSekarang.Text = "Pesan Sekarang";
             this.btnPesanSekarang.UseVisualStyleBackColor = true;
-            this.btnPesanSekarang.Click += new System.EventHandler(this.btnPesanSekarang_Click);
             // 
             // flowLayoutPanelLayanan
             // 
@@ -103,10 +127,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.7216F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.22272F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.22049F));
-            this.tableLayoutPanel1.Controls.Add(this.lblTotalPesanan, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblSedangBerlangsung, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblSelesai, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblTotalPengeluaran, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblSedangBerlangsung, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblTotalPengeluaran, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblTotalPesanan, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblSelesai, 2, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 186);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -114,49 +138,49 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1796, 61);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
-            // lblTotalPesanan
-            // 
-            this.lblTotalPesanan.AutoSize = true;
-            this.lblTotalPesanan.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPesanan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblTotalPesanan.Location = new System.Drawing.Point(467, 0);
-            this.lblTotalPesanan.Name = "lblTotalPesanan";
-            this.lblTotalPesanan.Size = new System.Drawing.Size(46, 45);
-            this.lblTotalPesanan.TabIndex = 5;
-            this.lblTotalPesanan.Text = "0";
-            // 
             // lblSedangBerlangsung
             // 
             this.lblSedangBerlangsung.AutoSize = true;
             this.lblSedangBerlangsung.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSedangBerlangsung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSedangBerlangsung.Location = new System.Drawing.Point(1363, 0);
+            this.lblSedangBerlangsung.Location = new System.Drawing.Point(467, 0);
             this.lblSedangBerlangsung.Name = "lblSedangBerlangsung";
             this.lblSedangBerlangsung.Size = new System.Drawing.Size(46, 45);
-            this.lblSedangBerlangsung.TabIndex = 4;
+            this.lblSedangBerlangsung.TabIndex = 5;
             this.lblSedangBerlangsung.Text = "0";
-            // 
-            // lblSelesai
-            // 
-            this.lblSelesai.AutoSize = true;
-            this.lblSelesai.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelesai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblSelesai.Location = new System.Drawing.Point(3, 0);
-            this.lblSelesai.Name = "lblSelesai";
-            this.lblSelesai.Size = new System.Drawing.Size(46, 45);
-            this.lblSelesai.TabIndex = 6;
-            this.lblSelesai.Text = "0";
             // 
             // lblTotalPengeluaran
             // 
             this.lblTotalPengeluaran.AutoSize = true;
             this.lblTotalPengeluaran.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPengeluaran.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblTotalPengeluaran.Location = new System.Drawing.Point(910, 0);
+            this.lblTotalPengeluaran.Location = new System.Drawing.Point(1363, 0);
             this.lblTotalPengeluaran.Name = "lblTotalPengeluaran";
             this.lblTotalPengeluaran.Size = new System.Drawing.Size(46, 45);
-            this.lblTotalPengeluaran.TabIndex = 7;
+            this.lblTotalPengeluaran.TabIndex = 4;
             this.lblTotalPengeluaran.Text = "0";
+            // 
+            // lblTotalPesanan
+            // 
+            this.lblTotalPesanan.AutoSize = true;
+            this.lblTotalPesanan.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPesanan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblTotalPesanan.Location = new System.Drawing.Point(3, 0);
+            this.lblTotalPesanan.Name = "lblTotalPesanan";
+            this.lblTotalPesanan.Size = new System.Drawing.Size(46, 45);
+            this.lblTotalPesanan.TabIndex = 6;
+            this.lblTotalPesanan.Text = "0";
+            // 
+            // lblSelesai
+            // 
+            this.lblSelesai.AutoSize = true;
+            this.lblSelesai.Font = new System.Drawing.Font("Verdana", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelesai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblSelesai.Location = new System.Drawing.Point(910, 0);
+            this.lblSelesai.Name = "lblSelesai";
+            this.lblSelesai.Size = new System.Drawing.Size(46, 45);
+            this.lblSelesai.TabIndex = 7;
+            this.lblSelesai.Text = "0";
             // 
             // linkRiwayatTransaksi
             // 
@@ -189,32 +213,6 @@
             this.linkKeRegister.TabStop = true;
             this.linkKeRegister.Text = "                       ";
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.BackgroundImage")));
-            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLogOut.Location = new System.Drawing.Point(1690, 21);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(179, 69);
-            this.btnLogOut.TabIndex = 1;
-            this.btnLogOut.Text = "    ";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // btnPesanSekarangg
-            // 
-            this.btnPesanSekarangg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPesanSekarangg.BackgroundImage")));
-            this.btnPesanSekarangg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPesanSekarangg.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesanSekarangg.ForeColor = System.Drawing.Color.Green;
-            this.btnPesanSekarangg.Location = new System.Drawing.Point(1521, 1601);
-            this.btnPesanSekarangg.Name = "btnPesanSekarangg";
-            this.btnPesanSekarangg.Size = new System.Drawing.Size(351, 81);
-            this.btnPesanSekarangg.TabIndex = 14;
-            this.btnPesanSekarangg.Text = "PESAN SEKARANG";
-            this.btnPesanSekarangg.UseVisualStyleBackColor = true;
-            this.btnPesanSekarangg.Click += new System.EventHandler(this.btnPesanSekarangg_Click);
-            // 
             // UserDashboardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,10 +237,10 @@
         private System.Windows.Forms.LinkLabel linkKeRegister;
         private System.Windows.Forms.LinkLabel linkRiwayatTransaksi;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblSelesai;
         private System.Windows.Forms.Label lblTotalPesanan;
-        private System.Windows.Forms.Label lblTotalPengeluaran;
         private System.Windows.Forms.Label lblSedangBerlangsung;
+        private System.Windows.Forms.Label lblSelesai;
+        private System.Windows.Forms.Label lblTotalPengeluaran;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelLayanan;
         private System.Windows.Forms.Button btnPesanSekarang;
         private System.Windows.Forms.Button btnLogOut;

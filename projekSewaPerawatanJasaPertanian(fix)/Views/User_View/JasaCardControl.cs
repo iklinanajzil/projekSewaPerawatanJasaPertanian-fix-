@@ -18,10 +18,12 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
         {
             InitializeComponent();
         }
+        public JasaModel JasaData { get; private set; }
+
 
         public void SetData(JasaModel jasa)
         {
-            this.Tag = jasa.IdJadwal;
+            this.JasaData = jasa;
 
             lblNamaJasa.Text = jasa.NamaJasa;
             lblHargaJasa.Text = $"Rp {jasa.HargaJasa:N0}";
@@ -45,6 +47,7 @@ namespace projekSewaPerawatanJasaPertanian_fix_.Views.User_View
                 lblStatusSlot.ForeColor = Color.Green; 
             }   
         }
+
 
         public bool IsSelected
         {
